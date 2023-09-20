@@ -63,6 +63,7 @@ namespace DesignPatterns
         static void Main(string[] args)
         {
             // TODO#7: Initialize Printer that uses Singleton pattern
+            Printer printer = Printer.getInstance();
             // TODO#8: Test that the created Printer works, by calling the Print method
 
             // TODO#9: Ensure that only one Printer instance is used throughout the application.
