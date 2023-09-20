@@ -1,12 +1,34 @@
-﻿namespace DesignPatterns
+﻿using System.Runtime.CompilerServices;
+
+namespace DesignPatterns
 {
     // Class for Printer
     // TODO#1: Convert to use Singleton pattern
     public class Printer
     {
+        private static Printer? _instance;
+
+        private Printer() { }
+
+        /// <summary>
+        /// Singleton logic:
+        /// If instance is null, creates a new object and saves it.
+        /// If object already exists, returns the object.
+        /// </summary>
+        /// <returns>Printer instance</returns>
+        public static Printer getInstance()
+        {
+            if (_instance == null)
+            {
+                _instance = new Printer();
+            }
+            return _instance;
+        }
+
         public void Print(string message)
         {
             // Output: print out the string message 
+            Console.WriteLine(message);
         }
     }
 
