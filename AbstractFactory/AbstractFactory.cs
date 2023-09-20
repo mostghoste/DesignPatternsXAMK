@@ -69,6 +69,13 @@ namespace DesignPatterns
 
             // TODO#9: Ensure that only one Printer instance is used throughout the application.
             //         Try to create new Printer object
+            
+            // The below line does not let us create a new Printer because the constructor is private.
+            // Printer printer2 = new Printer();
+            Printer printer2 = Printer.getInstance();
+            printer2.Print("Test 2");
+            //We get the hash code for both printer objects. Since they refer to the same object, their hash code should be the same.
+            printer2.Print("Hash code comparision: " + printer.GetHashCode().ToString() + " - " + printer2.GetHashCode().ToString());
 
             // TODO#10: Use Abstract Factory to create different types of exams.
         }
