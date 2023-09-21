@@ -108,8 +108,32 @@ namespace DesignPatterns
             printer.Print("Publishing Science Exam Results");
         }
     }
-    // TODO#6: Add another ProgrammingExam class
+    // #6: Add another ProgrammingExam class
+    public class ProgrammingExam : Exam
+    {
+        public Printer printer { get; }
+        public ProgrammingExam()
+        {
+            printer = Printer.getInstance();
+        }
+        public void Conduct()
+        {
+            // Output: "Conducting Math Exam", should use Printer class to print the message
+            printer.Print("Conducting Programming Exam");
+        }
 
+        public void Evaluate()
+        {
+            // Output: "Evaluating Math Exam", should use Printer class to print the message
+            printer.Print("Evaluating Programming Exam");
+        }
+
+        public void PublishResults()
+        {
+            // Output: "Publishing Math Exam Results", should use Printer class to print the message
+            printer.Print("Publishing Programming Exam Results");
+        }
+    }
     // Main Program
     class Program
     {
