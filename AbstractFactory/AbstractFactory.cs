@@ -35,21 +35,50 @@ namespace DesignPatterns
     // Class template for Exam classes
     // TODO#2: Convert to use Abstract Factory pattern
     // Create an Exam interface and an Abstract Factory to manage the creation of different exam types.
-    public class MathExam
+    public interface Exam
     {
+        public Printer printer {  get; }
+        public void Conduct();
+        public void Evaluate();
+        public void PublishResults();
+    }
+
+    public abstract class ExamFactory
+    {
+        public abstract Exam CreateExam();
+    }
+
+    public class MathExamFactory : ExamFactory
+    {
+        public override Exam CreateExam()
+        {
+            return new MathExam();
+        }
+    }
+
+    public class MathExam : Exam
+    {
+        public Printer printer { get; }
+        public MathExam()
+        {
+            printer = Printer.getInstance();
+        }
         public void Conduct()
         {
             // Output: "Conducting Math Exam", should use Printer class to print the message
+            printer.Print("Conducting Math Exam");
         }
 
         public void Evaluate()
         {
             // Output: "Evaluating Math Exam", should use Printer class to print the message
+            printer.Print("Evaluating Math Exam");
         }
 
         public void PublishResults()
         {
             // Output: "Publishing Math Exam Results", should use Printer class to print the message
+            printer.Print("Publishing Math Exam Results");
         }
     }
 
@@ -78,6 +107,8 @@ namespace DesignPatterns
             printer2.Print("Hash code comparision: " + printer.GetHashCode().ToString() + " - " + printer2.GetHashCode().ToString());
 
             // TODO#10: Use Abstract Factory to create different types of exams.
+            //ExamFactory examFactory = new MathExamFactory();
+            //List<Exam> exams = new List<Exam>();
         }
     }
 

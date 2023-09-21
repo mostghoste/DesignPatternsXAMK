@@ -39,7 +39,7 @@ public class CarDealer
     }
 }
 
-class Program
+class Exercise
 {
     static void Main(string[] args)
     {
