@@ -3,7 +3,7 @@
 namespace DesignPatterns
 {
     // Class for Printer
-    // TODO#1: Convert to use Singleton pattern
+    // #1: Convert to use Singleton pattern
     public class Printer
     {
         private static Printer? _instance;
@@ -62,12 +62,12 @@ namespace DesignPatterns
     {
         static void Main(string[] args)
         {
-            // TODO#7: Initialize Printer that uses Singleton pattern
+            // #7: Initialize Printer that uses Singleton pattern
             Printer printer = Printer.getInstance();
-            // TODO#8: Test that the created Printer works, by calling the Print method
+            // #8: Test that the created Printer works, by calling the Print method
             printer.Print("Test for Printer singleton.");
 
-            // TODO#9: Ensure that only one Printer instance is used throughout the application.
+            // #9: Ensure that only one Printer instance is used throughout the application.
             //         Try to create new Printer object
             
             // The below line does not let us create a new Printer because the constructor is private.
