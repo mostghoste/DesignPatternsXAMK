@@ -15,24 +15,26 @@ public class SUV : ICar
     public void Drive() => Console.WriteLine("Driving an SUV.");
 }
 
+public abstract class CarFactory
+{
+    public abstract ICar CreateCar();
+}
+
+public class SedanFactory : CarFactory
+{
+    public override ICar CreateCar() { return new Sedan(); }
+}
+
+public class SUVFactory : CarFactory
+{
+    public override ICar CreateCar() { return new SUV(); }
+}
+
 public class CarDealer
 {
-    public void TestDrive(string carType)
+    public void TestDrive(CarFactory factory)
     {
-        ICar car;
-        if (carType == "Sedan")
-        {
-            car = new Sedan();
-        }
-        else if (carType == "SUV")
-        {
-            car = new SUV();
-        }
-        else
-        {
-            throw new ArgumentException("Invalid car type");
-        }
-
+        ICar car = factory.CreateCar();
         car.Drive();
     }
 }
@@ -42,6 +44,7 @@ class Program
     static void Main(string[] args)
     {
         CarDealer dealer = new CarDealer();
-        dealer.TestDrive("Sedan");
+        dealer.TestDrive(new SedanFactory());
+        dealer.TestDrive(new SUVFactory());
     }
 }
