@@ -33,7 +33,7 @@ namespace DesignPatterns
     }
 
     // Class template for Exam classes
-    // TODO#2: Convert to use Abstract Factory pattern
+    // #2: Convert to use Abstract Factory pattern
     // Create an Exam interface and an Abstract Factory to manage the creation of different exam types.
     public interface Exam
     {
@@ -82,8 +82,32 @@ namespace DesignPatterns
         }
     }
 
-    // TODO#5: Add new ScienceExam class
+    // #5: Add new ScienceExam class
+    public class ScienceExam : Exam
+    {
+        public Printer printer { get; }
+        public ScienceExam()
+        {
+            printer = Printer.getInstance();
+        }
+        public void Conduct()
+        {
+            // Output: "Conducting Math Exam", should use Printer class to print the message
+            printer.Print("Conducting Science Exam");
+        }
 
+        public void Evaluate()
+        {
+            // Output: "Evaluating Math Exam", should use Printer class to print the message
+            printer.Print("Evaluating Science Exam");
+        }
+
+        public void PublishResults()
+        {
+            // Output: "Publishing Math Exam Results", should use Printer class to print the message
+            printer.Print("Publishing Science Exam Results");
+        }
+    }
     // TODO#6: Add another ProgrammingExam class
 
     // Main Program
