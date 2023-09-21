@@ -55,6 +55,20 @@ namespace DesignPatterns
             return new MathExam();
         }
     }
+    public class ScienceExamFactory : ExamFactory
+    {
+        public override Exam CreateExam()
+        {
+            return new ScienceExam();
+        }
+    }
+    public class ProgrammingExamFactory : ExamFactory
+    {
+        public override Exam CreateExam()
+        {
+            return new ProgrammingExam();
+        }
+    }
 
     public class MathExam : Exam
     {
@@ -154,9 +168,18 @@ namespace DesignPatterns
             //We get the hash code for both printer objects. Since they refer to the same object, their hash code should be the same.
             printer2.Print("Hash code comparision: " + printer.GetHashCode().ToString() + " - " + printer2.GetHashCode().ToString());
 
-            // TODO#10: Use Abstract Factory to create different types of exams.
-            //ExamFactory examFactory = new MathExamFactory();
-            //List<Exam> exams = new List<Exam>();
+            // #10: Use Abstract Factory to create different types of exams.
+            CreateAndConductExam(new MathExamFactory());
+            CreateAndConductExam(new ScienceExamFactory());
+            CreateAndConductExam(new ProgrammingExamFactory());
+        }
+
+        static void CreateAndConductExam(ExamFactory factory)
+        {
+            Exam exam = factory.CreateExam();
+            exam.Conduct();
+            exam.Evaluate();
+            exam.PublishResults();
         }
     }
 
