@@ -11,9 +11,9 @@
 
         public override string ToString()
         {
-            return $"Foundation: {Foundation}, Walls: {Walls}, Roof: {Roof}, " +
-                   $"Garage: {(HasGarage ? "Yes" : "No")}, " +
-                   $"Swimming Pool: {(HasSwimmingPool ? "Yes" : "No")}, " +
+            return $" Foundation: {Foundation}\n Walls: {Walls}\n Roof: {Roof}\n " +
+                   $"Garage: {(HasGarage ? "Yes" : "No")}\n " +
+                   $"Swimming Pool: {(HasSwimmingPool ? "Yes" : "No")}\n " +
                    $"Garden: {(HasGarden ? "Yes" : "No")}";
         }
     }
