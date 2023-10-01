@@ -22,7 +22,7 @@ namespace BuilderExercise
                     builder = new WoodHouseBuilder();
                     break;
                 case "2":
-                    builder = new WoodHouseBuilder();
+                    builder = new BrickHouseBuilder();
                     break;
                 default:
                     Console.WriteLine("Invalid choice! Building a default Wooden House.");
