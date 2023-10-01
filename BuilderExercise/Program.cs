@@ -10,6 +10,7 @@ namespace BuilderExercise
             Console.WriteLine("Please select a type of house you'd like to build:");
             Console.WriteLine("1: Wooden House");
             Console.WriteLine("2: Brick House");
+            Console.WriteLine("3: Custom House");
 
             string choice = Console.ReadLine();
 
@@ -23,6 +24,9 @@ namespace BuilderExercise
                     break;
                 case "2":
                     builder = new BrickHouseBuilder();
+                    break;
+                case "3":
+                    builder = new CustomHouseBuilder();
                     break;
                 default:
                     Console.WriteLine("Invalid choice! Building a default Wooden House.");
