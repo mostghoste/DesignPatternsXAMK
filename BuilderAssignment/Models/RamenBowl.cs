@@ -20,9 +20,15 @@ namespace BuilderAssignment.Models
         public Extra Extra { get; set; }
 
         //TODO#2: Return description of finished bowl of ramen
-        public static string FinishedBowlOfRamen()
+        public string FinishedBowlOfRamen()
         {
-            return "";
+            string ramen = String.Format(" Broth: {}\n Noodle: {}\n Topping: {}\n Extra: {}",
+                Broth.ToString(),
+                Noodle.ToString(),
+                Topping.ToString(),
+                Extra.ToString()
+                );
+            return ramen;
         }
     }
 }
