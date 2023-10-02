@@ -8,8 +8,12 @@ namespace BuilderAssignment
         public RamenBowl PrepareRamen(IRamenBuilder builder)
         {
             //TODO#1: Call each builder step declared in RamenBuilder class
+            builder.AddBroth();
+            builder.AddNoodles();
+            builder.AddToppings();
+            builder.AddExtras();
             
-            return null; //TODO#2: Finaly return build bowl of ramen
+            return builder.GetRamen(); //TODO#2: Finaly return build bowl of ramen
         }
     }
 }
