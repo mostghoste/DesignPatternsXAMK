@@ -49,13 +49,15 @@ namespace BuilderAssignment
 
             // TODO#2: Create new RamenBuilder's for each ramen recepies (MisoRamenBuilder, SpicyRamenBuilder, VeganRamenBuilder)
             IRamenBuilder misoBuilder = new MisoRamenBuilder();
+            IRamenBuilder spicyBuilder = new SpicyRamenBuilder();
 
             // TODO#3: Use your RamenChef to prepare (build) each type of ramen (Miso, Spicy, Vegan)
             RamenBowl misoRamen = chef.PrepareRamen(misoBuilder);
+            RamenBowl spicyRamen = chef.PrepareRamen(spicyBuilder);
             // TODO#4: After the RamenCheft has prepared the bowl of ramen, use FinishedBowlOfRamen to get the content of
             //         the RamenBowl and print it out using WriteLine method
             Console.WriteLine(misoRamen.FinishedBowlOfRamen());
-
+            Console.WriteLine(spicyRamen.FinishedBowlOfRamen());
         }
     }
 }
