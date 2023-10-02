@@ -56,8 +56,8 @@ namespace BuilderAssignment
             RamenBowl spicyRamen = chef.PrepareRamen(spicyBuilder);
             // TODO#4: After the RamenCheft has prepared the bowl of ramen, use FinishedBowlOfRamen to get the content of
             //         the RamenBowl and print it out using WriteLine method
-            Console.WriteLine(misoRamen.FinishedBowlOfRamen());
-            Console.WriteLine(spicyRamen.FinishedBowlOfRamen());
+            Console.WriteLine("Miso ramen:\n" + misoRamen.FinishedBowlOfRamen() + "\n");
+            Console.WriteLine("Spicy ramen:\n" + spicyRamen.FinishedBowlOfRamen() + "\n");
         }
     }
 }
