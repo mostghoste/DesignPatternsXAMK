@@ -27,8 +27,8 @@ namespace BuilderAssignment.Builders
         }
         public void AddToppings()
         {
-            ramen.Topping = Topping.ChashuPork;
-            //Add green onions as well
+            ramen.Topping.Add(Topping.ChashuPork);
+            ramen.Topping.Add(Topping.GreenOnions);
         }
 
         public void AddExtras()

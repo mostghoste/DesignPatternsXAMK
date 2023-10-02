@@ -19,6 +19,8 @@ namespace BuilderAssignment.Models
         public List<Topping> Topping { get; set; }
         public Extra? Extra { get; set; }
 
+        public RamenBowl() { Topping = new List<Topping>();  }
+
         //TODO#2: Return description of finished bowl of ramen
         public string FinishedBowlOfRamen()
         {
