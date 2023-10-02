@@ -17,6 +17,9 @@ namespace BuilderAssignment.Models
         public BrothType Broth { get; set; }
         public NoodleType Noodle { get; set; }
         public List<Topping> Topping { get; set; }
+
+        // It would probably make sense to convert the Extra to a list as well, but as the assignment
+        // does not require any ramen with multiple extras, this will be fine for now.
         public Extra? Extra { get; set; }
 
         public RamenBowl() { Topping = new List<Topping>();  }
@@ -39,8 +42,10 @@ namespace BuilderAssignment.Models
                 toppings = "None";
             }
 
+            // Check if ramen has extras and format the output accordingly
             string extra = Extra != null ? Extra.ToString() : "None";
 
+            // Format and return the final ramen ingredient string
             string ramen = String.Format(" Broth: {0}\n Noodle: {1}\n Topping: {2}\n Extra: {3}",
                 Broth.ToString(),
                 Noodle.ToString(),
