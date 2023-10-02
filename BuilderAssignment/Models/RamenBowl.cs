@@ -22,7 +22,7 @@ namespace BuilderAssignment.Models
         //TODO#2: Return description of finished bowl of ramen
         public string FinishedBowlOfRamen()
         {
-            string ramen = String.Format(" Broth: {}\n Noodle: {}\n Topping: {}\n Extra: {}",
+            string ramen = String.Format(" Broth: {0}\n Noodle: {1}\n Topping: {2}\n Extra: {3}",
                 Broth.ToString(),
                 Noodle.ToString(),
                 Topping.ToString(),
