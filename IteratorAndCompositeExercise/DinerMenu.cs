@@ -34,10 +34,11 @@ namespace IteratorAndCompositeExercise
             }
         }
 
-        public MenuItem[] GetMenuItems()
+        public Iterator createIterator()
         {
-            return MenuItems;
+            return new DinerMenuIterator(MenuItems);
         }
+
     }
 
     internal class DinerMenuIterator : Iterator
@@ -59,6 +60,7 @@ namespace IteratorAndCompositeExercise
             else { return true; }
         }
 
+        // Does not check whether next object exists. Must be used with hasNext().
         public object next()
         {
             MenuItem menuItem = items[position++];
