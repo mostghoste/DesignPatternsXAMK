@@ -10,7 +10,10 @@ namespace IteratorAndCompositeExercise
         static void Main(string[] args)
         {
             DinerMenu dinerMenu = new DinerMenu();
-            Waitress waitress = new Waitress(dinerMenu);
+            PancakeHouseMenu pancakeHouseMenu = new PancakeHouseMenu();
+
+            Waitress waitress = new Waitress(dinerMenu, pancakeHouseMenu);
+
             Console.WriteLine("Welcome to the diner!");
             waitress.printMenu();
         }

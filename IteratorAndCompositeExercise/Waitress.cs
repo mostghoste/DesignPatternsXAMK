@@ -9,15 +9,21 @@ namespace IteratorAndCompositeExercise
     internal class Waitress
     {
         DinerMenu dinerMenu;
+        PancakeHouseMenu pancakeHouseMenu;
         
-        public Waitress(DinerMenu dinerMenu)
+        public Waitress(DinerMenu dinerMenu, PancakeHouseMenu pancakeHouseMenu)
         {
             this.dinerMenu = dinerMenu;
+            this.pancakeHouseMenu = pancakeHouseMenu;
         }
 
         public void printMenu()
         {
             Iterator dinerIterator = dinerMenu.createIterator();
+            Iterator pancakeIterator = pancakeHouseMenu.createIterator();
+
+            Console.WriteLine("--- Breakfast menu ---");
+            printMenu(pancakeIterator);
             Console.WriteLine("--- Diner menu ---");
             printMenu(dinerIterator);
         }

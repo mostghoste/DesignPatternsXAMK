@@ -25,7 +25,7 @@ namespace IteratorAndCompositeExercise
             MenuItems.Add(menuItem);
         }
 
-        public Iterator getIterator()
+        public Iterator createIterator()
         {
             return new PancakeHouseIterator(MenuItems);
         }
