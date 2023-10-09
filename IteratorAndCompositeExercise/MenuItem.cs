@@ -40,5 +40,10 @@ namespace IteratorAndCompositeExercise
         {
             return Price;
         }
+
+        public override string ToString()
+        {
+            return String.Format("{0}, {1} -- {2}", Name, Price, Description);
+        }
     }
 }
