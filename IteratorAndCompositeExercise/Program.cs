@@ -9,7 +9,10 @@ namespace IteratorAndCompositeExercise
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            DinerMenu dinerMenu = new DinerMenu();
+            Waitress waitress = new Waitress(dinerMenu);
+            Console.WriteLine("Welcome to the diner!");
+            waitress.printMenu();
         }
     }
 }
