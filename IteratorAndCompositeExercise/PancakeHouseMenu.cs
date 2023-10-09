@@ -30,4 +30,28 @@ namespace IteratorAndCompositeExercise
             return MenuItems;
         }
     }
+
+    internal class PancakeHouseIterator : Iterator
+    {
+        ArrayList MenuItems;
+        int position = 0;
+        public PancakeHouseIterator(ArrayList menuItems)
+        {
+            MenuItems = menuItems;
+        }
+
+        public bool hasNext()
+        {
+            if (position >= MenuItems.Count || MenuItems[position] == null)
+            {
+                return false;
+            }
+            return true;
+        }
+
+        public object next()
+        {
+            return MenuItems[position++];
+        }
+    }
 }
