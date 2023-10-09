@@ -47,28 +47,5 @@ namespace IteratorAndCompositeExercise
                 return Price;
             }
         }
-
-        public class PancakeHouseMenu
-        {
-            public ArrayList MenuItems { get; set; }
-
-            public PancakeHouseMenu()
-            {
-                MenuItems = new ArrayList();
-
-                AddItem("K&B´s Pancake Breakfast", "Pancakes with scrambled eggs, and toast", false, 2.99);
-            }
-
-            public void AddItem(string name, string description, bool vegetarian, double price)
-            {
-                MenuItem menuItem = new MenuItem(name, description, vegetarian, price);
-                MenuItems.Add(menuItem);
-            }
-
-            public ArrayList GetMenuItems()
-            {
-                return MenuItems;
-            }
-        }
     }
 }
