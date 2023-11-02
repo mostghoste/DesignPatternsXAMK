@@ -7,6 +7,14 @@
     // Chapeter 3 the DecoratorPattern: Decorating Objects (starts at page 79)
     // Link to pdf: https://github.com/ajitpal/BookBank/blob/master/%5BO%60Reilly.%20Head%20First%5D%20-%20Head%20First%20Design%20Patterns%20-%20%5BFreeman%5D.pdf
     // NOTE: Remember that the code examples in this book are written in java so you can't just copy the code examples given there
+    public abstract class Beverage
+    {
+        string description = "Unknown description";
+
+        public string getDescription() { return description;}
+
+        public abstract double cost();
+    }
     internal class Program
     {
         static void Main(string[] args)
