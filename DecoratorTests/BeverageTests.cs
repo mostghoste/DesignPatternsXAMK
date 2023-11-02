@@ -36,7 +36,7 @@ namespace DecoratorTests
             beverage = new Mocha(beverage);
             beverage = new Whip(beverage);
             Assert.AreEqual("Dark Roast Coffee, Mocha, Mocha, Whip", beverage.GetDescription());
-            Assert.AreEqual(1.29M, beverage.Cost());
+            Assert.AreEqual(1.49M, beverage.Cost());
         }
         
         [TestMethod]
@@ -57,7 +57,7 @@ namespace DecoratorTests
             beverage = new Mocha(beverage);
             beverage = new Whip(beverage);
             Assert.AreEqual("Decaf Coffee, Mocha, Whip", beverage.GetDescription());
-            Assert.AreEqual(1.09M, beverage.Cost());
+            Assert.AreEqual(1.35M, beverage.Cost());
         }
     }
 }
