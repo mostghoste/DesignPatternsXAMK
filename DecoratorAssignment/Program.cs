@@ -73,11 +73,31 @@
             return price;
         }
     }
+
+    public class Mocha : CondimentDecorator
+    {
+        Beverage beverage;
+        protected double price = .20;
+        private string desc = "Mocha";
+
+        public Mocha(Beverage beverage)
+        {
+            this.beverage = beverage;
+        }
+
+        public override string getDescription()
+        {
+            return beverage.getDescription() + ", " + desc;
+        }
+        public override double cost()
+        {
+            return price + beverage.cost();
+        }
+    }
     internal class Program
     {
         static void Main(string[] args)
         {
-            
         }
     }
 }
