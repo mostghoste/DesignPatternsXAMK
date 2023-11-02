@@ -11,14 +11,14 @@
     {
         protected string description = "Unknown description";
 
-        public string getDescription() { return description;}
+        public string GetDescription() { return description;}
 
-        public abstract double cost();
+        public abstract double Cost();
     }
 
     public abstract class CondimentDecorator : Beverage
     {
-        public new abstract string getDescription();
+        public new abstract string GetDescription();
     }
 
     public class Espresso : Beverage
@@ -29,7 +29,7 @@
             description = "Espresso";
         }
 
-        public override double cost()
+        public override double Cost()
         {
             return price;
         }
@@ -42,7 +42,7 @@
             description = "House Blend";
         }
 
-        public override double cost()
+        public override double Cost()
         {
             return price;
         }
@@ -55,7 +55,7 @@
             description = "Dark roast";
         }
 
-        public override double cost()
+        public override double Cost()
         {
             return price;
         }
@@ -68,7 +68,7 @@
             description = "Decaf";
         }
 
-        public override double cost()
+        public override double Cost()
         {
             return price;
         }
@@ -85,13 +85,13 @@
             this.beverage = beverage;
         }
 
-        public override string getDescription()
+        public override string GetDescription()
         {
-            return beverage.getDescription() + ", " + desc;
+            return beverage.GetDescription() + ", " + desc;
         }
-        public override double cost()
+        public override double Cost()
         {
-            return price + beverage.cost();
+            return price + beverage.Cost();
         }
     }
     public class SteamedMilk : CondimentDecorator
@@ -105,13 +105,13 @@
             this.beverage = beverage;
         }
 
-        public override string getDescription()
+        public override string GetDescription()
         {
-            return beverage.getDescription() + ", " + desc;
+            return beverage.GetDescription() + ", " + desc;
         }
-        public override double cost()
+        public override double Cost()
         {
-            return price + beverage.cost();
+            return price + beverage.Cost();
         }
     }
     public class Soy : CondimentDecorator
@@ -125,13 +125,13 @@
             this.beverage = beverage;
         }
 
-        public override string getDescription()
+        public override string GetDescription()
         {
-            return beverage.getDescription() + ", " + desc;
+            return beverage.GetDescription() + ", " + desc;
         }
-        public override double cost()
+        public override double Cost()
         {
-            return price + beverage.cost();
+            return price + beverage.Cost();
         }
     }
     public class Whip : CondimentDecorator
@@ -145,13 +145,13 @@
             this.beverage = beverage;
         }
 
-        public override string getDescription()
+        public override string GetDescription()
         {
-            return beverage.getDescription() + ", " + desc;
+            return beverage.GetDescription() + ", " + desc;
         }
-        public override double cost()
+        public override double Cost()
         {
-            return price + beverage.cost();
+            return price + beverage.Cost();
         }
     }
     internal class Program
