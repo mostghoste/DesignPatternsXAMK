@@ -13,7 +13,7 @@
 
         public string GetDescription() { return description;}
 
-        public abstract double Cost();
+        public abstract decimal Cost();
     }
 
     public abstract class CondimentDecorator : Beverage
@@ -23,52 +23,52 @@
 
     public class Espresso : Beverage
     {
-        protected double price = 1.99;
+        protected decimal price = 1.99M;
         public Espresso()
         {
             description = "Espresso";
         }
 
-        public override double Cost()
+        public override decimal Cost()
         {
             return price;
         }
     }
     public class HouseBlend : Beverage
     {
-        protected double price = .89;
+        protected decimal price = .89M;
         public HouseBlend()
         {
             description = "House Blend";
         }
 
-        public override double Cost()
+        public override decimal Cost()
         {
             return price;
         }
     }
     public class DarkRoast : Beverage
     {
-        protected double price = .99;
+        protected decimal price = .99M;
         public DarkRoast()
         {
             description = "Dark roast";
         }
 
-        public override double Cost()
+        public override decimal Cost()
         {
             return price;
         }
     }
     public class Decaf : Beverage
     {
-        protected double price = 1.05;
+        protected decimal price = 1.05M;
         public Decaf()
         {
             description = "Decaf";
         }
 
-        public override double Cost()
+        public override decimal Cost()
         {
             return price;
         }
@@ -77,7 +77,7 @@
     public class Mocha : CondimentDecorator
     {
         Beverage beverage;
-        protected double price = .20;
+        protected decimal price = .20M;
         private string desc = "Mocha";
 
         public Mocha(Beverage beverage)
@@ -89,7 +89,7 @@
         {
             return beverage.GetDescription() + ", " + desc;
         }
-        public override double Cost()
+        public override decimal Cost()
         {
             return price + beverage.Cost();
         }
@@ -97,7 +97,7 @@
     public class SteamedMilk : CondimentDecorator
     {
         Beverage beverage;
-        protected double price = .1;
+        protected decimal price = .1M;
         private string desc = "Steamed milk";
 
         public SteamedMilk(Beverage beverage)
@@ -109,7 +109,7 @@
         {
             return beverage.GetDescription() + ", " + desc;
         }
-        public override double Cost()
+        public override decimal Cost()
         {
             return price + beverage.Cost();
         }
@@ -117,7 +117,7 @@
     public class Soy : CondimentDecorator
     {
         Beverage beverage;
-        protected double price = .15;
+        protected decimal price = .15M;
         private string desc = "Soy";
 
         public Soy(Beverage beverage)
@@ -129,7 +129,7 @@
         {
             return beverage.GetDescription() + ", " + desc;
         }
-        public override double Cost()
+        public override decimal Cost()
         {
             return price + beverage.Cost();
         }
@@ -137,7 +137,7 @@
     public class Whip : CondimentDecorator
     {
         Beverage beverage;
-        protected double price = .10;
+        protected decimal price = .10M;
         private string desc = "Whip";
 
         public Whip(Beverage beverage)
@@ -149,7 +149,7 @@
         {
             return beverage.GetDescription() + ", " + desc;
         }
-        public override double Cost()
+        public override decimal Cost()
         {
             return price + beverage.Cost();
         }
