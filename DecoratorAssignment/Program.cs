@@ -11,14 +11,14 @@
     {
         protected string description = "Unknown description";
 
-        public string GetDescription() { return description;}
+        public virtual string GetDescription() { return description;}
 
         public abstract decimal Cost();
     }
 
     public abstract class CondimentDecorator : Beverage
     {
-        public new abstract string GetDescription();
+        public override abstract string GetDescription();
     }
 
     public class Espresso : Beverage
