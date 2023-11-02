@@ -94,6 +94,66 @@
             return price + beverage.cost();
         }
     }
+    public class SteamedMilk : CondimentDecorator
+    {
+        Beverage beverage;
+        protected double price = .1;
+        private string desc = "Steamed milk";
+
+        public SteamedMilk(Beverage beverage)
+        {
+            this.beverage = beverage;
+        }
+
+        public override string getDescription()
+        {
+            return beverage.getDescription() + ", " + desc;
+        }
+        public override double cost()
+        {
+            return price + beverage.cost();
+        }
+    }
+    public class Soy : CondimentDecorator
+    {
+        Beverage beverage;
+        protected double price = .15;
+        private string desc = "Soy";
+
+        public Soy(Beverage beverage)
+        {
+            this.beverage = beverage;
+        }
+
+        public override string getDescription()
+        {
+            return beverage.getDescription() + ", " + desc;
+        }
+        public override double cost()
+        {
+            return price + beverage.cost();
+        }
+    }
+    public class Whip : CondimentDecorator
+    {
+        Beverage beverage;
+        protected double price = .10;
+        private string desc = "Whip";
+
+        public Whip(Beverage beverage)
+        {
+            this.beverage = beverage;
+        }
+
+        public override string getDescription()
+        {
+            return beverage.getDescription() + ", " + desc;
+        }
+        public override double cost()
+        {
+            return price + beverage.cost();
+        }
+    }
     internal class Program
     {
         static void Main(string[] args)
