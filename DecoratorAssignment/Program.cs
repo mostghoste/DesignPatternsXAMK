@@ -39,7 +39,7 @@
         protected decimal price = .89M;
         public HouseBlend()
         {
-            description = "House Blend";
+            description = "House Blend Coffee";
         }
 
         public override decimal Cost()
@@ -52,7 +52,7 @@
         protected decimal price = .99M;
         public DarkRoast()
         {
-            description = "Dark roast";
+            description = "Dark Roast Coffee";
         }
 
         public override decimal Cost()
@@ -65,7 +65,7 @@
         protected decimal price = 1.05M;
         public Decaf()
         {
-            description = "Decaf";
+            description = "Decaf Coffee";
         }
 
         public override decimal Cost()
