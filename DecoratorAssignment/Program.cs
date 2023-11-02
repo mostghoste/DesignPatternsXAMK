@@ -9,11 +9,69 @@
     // NOTE: Remember that the code examples in this book are written in java so you can't just copy the code examples given there
     public abstract class Beverage
     {
-        string description = "Unknown description";
+        protected string description = "Unknown description";
 
         public string getDescription() { return description;}
 
         public abstract double cost();
+    }
+
+    public abstract class CondimentDecorator : Beverage
+    {
+        public new abstract string getDescription();
+    }
+
+    public class Espresso : Beverage
+    {
+        protected double price = 1.99;
+        public Espresso()
+        {
+            description = "Espresso";
+        }
+
+        public override double cost()
+        {
+            return price;
+        }
+    }
+    public class HouseBlend : Beverage
+    {
+        protected double price = 1.50;
+        public HouseBlend()
+        {
+            description = "House Blend";
+        }
+
+        public override double cost()
+        {
+            return price;
+        }
+    }
+    public class DarkRoast : Beverage
+    {
+        protected double price = 2.00;
+        public DarkRoast()
+        {
+            description = "Dark roast";
+        }
+
+        public override double cost()
+        {
+            return price;
+        }
+    }
+    public class Decaf : Beverage
+    {
+        protected double price = 1.00;
+        public Decaf()
+        {
+            description = "Decaf";
+        }
+
+        public override double cost()
+        {
+            return price;
+        }
     }
     internal class Program
     {
