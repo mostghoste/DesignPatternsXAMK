@@ -36,7 +36,7 @@
     }
     public class HouseBlend : Beverage
     {
-        protected double price = 1.50;
+        protected double price = .89;
         public HouseBlend()
         {
             description = "House Blend";
@@ -49,7 +49,7 @@
     }
     public class DarkRoast : Beverage
     {
-        protected double price = 2.00;
+        protected double price = .99;
         public DarkRoast()
         {
             description = "Dark roast";
@@ -62,7 +62,7 @@
     }
     public class Decaf : Beverage
     {
-        protected double price = 1.00;
+        protected double price = 1.05;
         public Decaf()
         {
             description = "Decaf";
