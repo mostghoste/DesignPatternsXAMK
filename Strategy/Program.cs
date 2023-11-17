@@ -10,7 +10,10 @@
             Console.Write(name + " movement: ");
             moveStrategy.execute();
         }
-        public abstract void SetStrategy(MoveStrategy moveStrategy);
+        public void SetStrategy(MoveStrategy moveStrategy)
+        {
+            this.moveStrategy = moveStrategy;
+        }
     }
 
     public interface MoveStrategy
@@ -50,11 +53,6 @@
             name = "Sparrow";
             this.moveStrategy = moveStrategy;
         }
-
-        public override void SetStrategy(MoveStrategy moveStrategy)
-        {
-            this.moveStrategy = moveStrategy;
-        }
     }
 
     public class Penguin : Bird
@@ -68,10 +66,6 @@
             this.moveStrategy = moveStrategy;
         }
 
-        public override void SetStrategy(MoveStrategy moveStrategy)
-        {
-            this.moveStrategy = moveStrategy;
-        }
     }
 
     public class Ostrich : Bird
@@ -85,10 +79,6 @@
             this.moveStrategy = moveStrategy;
         }
 
-        public override void SetStrategy(MoveStrategy moveStrategy)
-        {
-            this.moveStrategy = moveStrategy;
-        }
     }
 
     internal class Program
