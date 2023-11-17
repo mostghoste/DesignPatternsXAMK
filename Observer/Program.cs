@@ -59,16 +59,40 @@ public class WeatherData : Subject
         measurementsChanged();
     }
 }
+
+public class CurrentConditionsDisplay : Observer, DisplayElement
+{
+    private double temperature;
+    private double humidity;
+    private Subject weatherData;
+
+    public CurrentConditionsDisplay(Subject weatherData)
+    {
+        this.weatherData = weatherData;
+        weatherData.registerObserver(this);
+    }
+
+    public void update(double temperature, double humidity, double pressure)
+    {
+        this.temperature = temperature;
+        this.humidity = humidity;
+        display();
+    }
+
+    public void display()
+    {
+        Console.WriteLine("Current conditions: " + temperature + " degrees and " + humidity + "% humidity");
+    }
+}
+
 public class Program
 {
     public static void Main(string[] args)
     {
         WeatherData weatherData = new WeatherData();
+        CurrentConditionsDisplay currentConditions = new CurrentConditionsDisplay(weatherData);
         weatherData.setMeasurements(80, 65, 30.4);
-        Console.WriteLine(string.Format("Weather data: temp: {0}; humidity: {1}; pressure: {2};", weatherData.temperature, weatherData.humidity, weatherData.pressure));
         weatherData.setMeasurements(82, 70, 29.2);
-        Console.WriteLine(string.Format("Weather data: temp: {0}; humidity: {1}; pressure: {2};", weatherData.temperature, weatherData.humidity, weatherData.pressure));
         weatherData.setMeasurements(78, 90, 29.2);
-        Console.WriteLine(string.Format("Weather data: temp: {0}; humidity: {1}; pressure: {2};", weatherData.temperature, weatherData.humidity, weatherData.pressure));
     }
 }
