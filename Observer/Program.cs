@@ -65,9 +65,9 @@ public class CurrentConditionsDisplay : Observer, DisplayElement
 {
     private double temperature;
     private double humidity;
-    private Subject weatherData;
+    private WeatherData weatherData;
 
-    public CurrentConditionsDisplay(Subject weatherData)
+    public CurrentConditionsDisplay(WeatherData weatherData)
     {
         this.weatherData = weatherData;
         weatherData.registerObserver(this);
@@ -89,9 +89,9 @@ public class CurrentConditionsDisplay : Observer, DisplayElement
 public class StatisticsDisplay : Observer, DisplayElement
 {
     private List<double> temperatureHistory;
-    private Subject weatherData;
+    private WeatherData weatherData;
 
-    public StatisticsDisplay(Subject WeatherData)
+    public StatisticsDisplay(WeatherData WeatherData)
     {
         this.weatherData = WeatherData;
         weatherData.registerObserver(this);
