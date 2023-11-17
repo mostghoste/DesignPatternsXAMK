@@ -85,14 +85,42 @@ public class CurrentConditionsDisplay : Observer, DisplayElement
     }
 }
 
+public class StatisticsDisplay : Observer, DisplayElement
+{
+    private double temperature;
+    private double humidity;
+    private Subject weatherData;
+
+    public StatisticsDisplay(Subject WeatherData)
+    {
+        this.weatherData = WeatherData;
+        weatherData.registerObserver(this);
+    }
+    public void update(double temp, double humidity, double pressure)
+    {
+        this.temperature = temp;
+        this.humidity = humidity;
+        display();
+    }
+    public void display()
+    {
+        Console.WriteLine("Statistics: " + temperature + " degrees and " + humidity + "% humidity");
+    }
+}
+
 public class Program
 {
     public static void Main(string[] args)
     {
         WeatherData weatherData = new WeatherData();
         CurrentConditionsDisplay currentConditions = new CurrentConditionsDisplay(weatherData);
+        StatisticsDisplay statistics = new StatisticsDisplay(weatherData);
+
         weatherData.setMeasurements(80, 65, 30.4);
+        Console.WriteLine();
         weatherData.setMeasurements(82, 70, 29.2);
+        Console.WriteLine();
         weatherData.setMeasurements(78, 90, 29.2);
+        Console.WriteLine();
     }
 }
