@@ -5,7 +5,11 @@
         public abstract string name { get; set; }
         public abstract MoveStrategy moveStrategy { get; set; }
 
-        public abstract void Move();
+        public void Move()
+        {
+            Console.Write(name + " movement: ");
+            moveStrategy.execute();
+        }
         public abstract void SetStrategy(MoveStrategy moveStrategy);
     }
 
@@ -46,11 +50,6 @@
             name = "Sparrow";
             this.moveStrategy = moveStrategy;
         }
-        public override void Move()
-        {
-            Console.Write(name + " movement: ");
-            moveStrategy.execute();
-        }
 
         public override void SetStrategy(MoveStrategy moveStrategy)
         {
@@ -68,11 +67,6 @@
             name = "Penguin";
             this.moveStrategy = moveStrategy;
         }
-        public override void Move()
-        {
-            Console.Write(name + " movement: ");
-            moveStrategy.execute();
-        }
 
         public override void SetStrategy(MoveStrategy moveStrategy)
         {
@@ -89,11 +83,6 @@
         {
             name = "Ostrich";
             this.moveStrategy = moveStrategy;
-        }
-        public override void Move()
-        {
-            Console.Write(name + " movement: ");
-            moveStrategy.execute();
         }
 
         public override void SetStrategy(MoveStrategy moveStrategy)
