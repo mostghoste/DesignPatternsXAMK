@@ -112,6 +112,40 @@ public class StatisticsDisplay : Observer, DisplayElement
     }
 }
 
+public class ForecastDisplay : Observer, DisplayElement
+{
+    private WeatherData weatherData;
+    private List<string> possibleForecasts;
+    public ForecastDisplay(WeatherData weatherData)
+    {
+        this.weatherData = weatherData;
+        weatherData.registerObserver(this);
+
+        possibleForecasts = new List<string>
+        {
+            "The weather is going to improve slightly. Maybe.",
+            "I sense a hurricane coming, hide in your shelters!",
+            "It's never going to rain again. I'm sure of this.",
+            "You might need to bring shorts. But also a winter coat."
+        };
+    }
+
+    public void display()
+    {
+        // Since we aren't really receiving any forecast data, and I'm in no mood to actually build a forecast predictor:
+        // Picks the forecast randomly.
+        Random rnd = new Random();
+        string forecast = possibleForecasts[rnd.Next(0, possibleForecasts.Count)];
+
+        Console.WriteLine("Forecast: " + forecast);
+    }
+
+    public void update(double temp, double humidity, double pressure)
+    {
+        display();
+    }
+}
+
 public class Program
 {
     public static void Main(string[] args)
@@ -119,6 +153,7 @@ public class Program
         WeatherData weatherData = new WeatherData();
         CurrentConditionsDisplay currentConditions = new CurrentConditionsDisplay(weatherData);
         StatisticsDisplay statistics = new StatisticsDisplay(weatherData);
+        ForecastDisplay forecast = new ForecastDisplay(weatherData);
 
         weatherData.setMeasurements(80, 65, 30.4);
         Console.WriteLine();
