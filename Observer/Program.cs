@@ -88,24 +88,27 @@ public class CurrentConditionsDisplay : Observer, DisplayElement
 
 public class StatisticsDisplay : Observer, DisplayElement
 {
-    private double temperature;
-    private double humidity;
+    private List<double> temperatureHistory;
     private Subject weatherData;
 
     public StatisticsDisplay(Subject WeatherData)
     {
         this.weatherData = WeatherData;
         weatherData.registerObserver(this);
+
+        temperatureHistory = new List<double>();
     }
     public void update(double temp, double humidity, double pressure)
     {
-        this.temperature = temp;
-        this.humidity = humidity;
+        temperatureHistory.Add(temp);
         display();
     }
     public void display()
     {
-        Console.WriteLine("Statistics: " + temperature + " degrees and " + humidity + "% humidity");
+        double avgTemp = temperatureHistory.Average();
+        double maxTemp = temperatureHistory.Max();
+        double minTemp = temperatureHistory.Min();
+        Console.WriteLine(String.Format("Statistics (Temperature): Average: {0}; Maximum {1}; Minimum: {2};", avgTemp, maxTemp, minTemp));
     }
 }
 
