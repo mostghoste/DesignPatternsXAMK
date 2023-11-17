@@ -53,6 +53,7 @@ public class WeatherData : Subject
     // Manually update the measurements
     public void setMeasurements(double temperature, double humidity, double pressure)
     {
+        Console.WriteLine(String.Format("New data! T: {0}; H: {1}; P: {2}", temperature, humidity, pressure));
         this.temperature = temperature;
         this.humidity = humidity;
         this.pressure = pressure;
