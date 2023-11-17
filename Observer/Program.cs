@@ -1,2 +1,19 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿Console.WriteLine("Test");
+
+public interface Subject
+{
+    void registerObserver(Observer o);
+    void removeObserver(Observer o);
+    void notifyObservers();
+}
+
+public interface Observer
+{
+    void update(float temp, float humidity, float pressure);
+}
+
+public interface DisplayElement
+{
+    void display();
+}
+
