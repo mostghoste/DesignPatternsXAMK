@@ -1,8 +1,18 @@
-﻿namespace Command
+﻿using System.Text;
+
+namespace Command
 {
     public interface ICommand
     {
         void execute();
+    }
+
+    public class NoCommand : ICommand
+    {
+        public void execute()
+        {
+            Console.WriteLine("Nothing happens.");
+        }
     }
 
     public class Light
@@ -41,6 +51,11 @@
         {
             // Our remote is going to have six slots for commands
             slot = new ICommand[6];
+            // Fill the remote with no commands
+            for (int i = 0; i < slot.Length; i++)
+            {
+                slot[i] = new NoCommand();
+            }
         }
 
         public void setCommand(int remoteButtonIndex,  ICommand command)
@@ -51,16 +66,29 @@
         {
             slot[remoteButtonIndex].execute();
         }
+
+        public override string ToString()
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.Append("------ Remote Control Buttons -------\n");
+            for (int i = 0; i < slot.Length; i++)
+            {
+                sb.Append("[slot " + i + "] " + slot[i].GetType().Name + "\n");
+            }
+            sb.Append("--------------------------------------\n");
+            return sb.ToString();
+        }
     }
     internal class Program
     {
         static void Main(string[] args)
         {
-            //RemoteController remote = new RemoteController();
+            RemoteController remote = new RemoteController();
             //Light light = new Light();
             //LightOnCommand lightOn = new LightOnCommand(light);
             //remote.setCommand(lightOn);
             //remote.buttonWasPressed();
+            Console.WriteLine(remote.ToString());
         }
     }
 }
