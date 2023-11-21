@@ -122,6 +122,43 @@ namespace Command
         }
     }
 
+    // Composite commands
+    public class IncreaseTemperatureAndLightOnCommand : ICommand
+    {
+        Thermostat thermostat;
+        Light light;
+
+        public IncreaseTemperatureAndLightOnCommand(Thermostat thermostat, Light light)
+        {
+            this.thermostat = thermostat;
+            this.light = light;
+        }
+
+        public void execute()
+        {
+            thermostat.increaseTemperature();
+            light.on();
+        }
+    }
+
+    public class DecreaseTemperatureAndLightOffCommand : ICommand
+    {
+        Thermostat thermostat;
+        Light light;
+
+        public DecreaseTemperatureAndLightOffCommand(Thermostat thermostat, Light light)
+        {
+            this.thermostat = thermostat;
+            this.light = light;
+        }
+
+        public void execute()
+        {
+            thermostat.decreaseTemperature();
+            light.off();
+        }
+    }
+
     public class RemoteController
     {
         ICommand[] slot;
@@ -172,12 +209,17 @@ namespace Command
             IncreaseTemperatureCommand increaseTemperature = new IncreaseTemperatureCommand(thermostat);
             DecreaseTemperatureCommand decreaseTemperature = new DecreaseTemperatureCommand(thermostat);
 
+            // Create composite commands
+            IncreaseTemperatureAndLightOnCommand increaseTemperatureAndLightOn = new IncreaseTemperatureAndLightOnCommand(thermostat, light);
+            DecreaseTemperatureAndLightOffCommand decreaseTemperatureAndLightOff = new DecreaseTemperatureAndLightOffCommand(thermostat, light);
             // Create a remote controller and set it's commands
             RemoteController remote = new RemoteController();
             remote.setCommand(0, lightOn);
             remote.setCommand(1, lightOff);
             remote.setCommand(2, increaseTemperature);
             remote.setCommand(3, decreaseTemperature);
+            remote.setCommand(4, increaseTemperatureAndLightOn);
+            remote.setCommand(5, decreaseTemperatureAndLightOff);
 
             // Print the commands of the remote controller
             Console.WriteLine(remote.ToString());
