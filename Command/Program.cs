@@ -14,7 +14,6 @@
         public void off()
         {
             Console.WriteLine("Light is off");
-        
         }
     }
 
@@ -31,6 +30,22 @@
         public void execute()
         {
             light.on();
+        }
+    }
+
+    public class RemoteController
+    {
+        ICommand slot;
+
+        public RemoteController() {}
+
+        public void setCommand(ICommand command)
+        {
+            slot = command;
+        }
+        public void buttonWasPressed()
+        {
+            slot.execute();
         }
     }
     internal class Program
