@@ -75,7 +75,7 @@ namespace Command
             {
                 sb.Append("[slot " + i + "] " + slot[i].GetType().Name + "\n");
             }
-            sb.Append("--------------------------------------\n");
+            sb.Append("--------------------------------------");
             return sb.ToString();
         }
     }
@@ -89,6 +89,29 @@ namespace Command
             //remote.setCommand(lightOn);
             //remote.buttonWasPressed();
             Console.WriteLine(remote.ToString());
+
+
+            // Main command reading loop
+            while (true)
+            {
+                Console.WriteLine("\nEnter a command number or write 'exit': ");
+                // Try to convert the input to a command number. Handle the exception if the input is not a number
+                try
+                {
+                    string input = Console.ReadLine();
+                    if (input == "exit")
+                    {
+                        break;
+                    }
+                    int commandNumber = Convert.ToInt32(input);
+                    remote.buttonWasPressed(commandNumber);
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("Invalid input. Please enter a valid command number.");
+                    continue;
+                }
+            }
         }
     }
 }
