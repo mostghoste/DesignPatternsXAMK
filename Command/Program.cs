@@ -35,28 +35,32 @@
 
     public class RemoteController
     {
-        ICommand slot;
+        ICommand[] slot;
 
-        public RemoteController() {}
-
-        public void setCommand(ICommand command)
+        public RemoteController()
         {
-            slot = command;
+            // Our remote is going to have six slots for commands
+            slot = new ICommand[6];
         }
-        public void buttonWasPressed()
+
+        public void setCommand(int remoteButtonIndex,  ICommand command)
         {
-            slot.execute();
+            slot[remoteButtonIndex] = command;
+        }
+        public void buttonWasPressed(int remoteButtonIndex)
+        {
+            slot[remoteButtonIndex].execute();
         }
     }
     internal class Program
     {
         static void Main(string[] args)
         {
-            RemoteController remote = new RemoteController();
-            Light light = new Light();
-            LightOnCommand lightOn = new LightOnCommand(light);
-            remote.setCommand(lightOn);
-            remote.buttonWasPressed();
+            //RemoteController remote = new RemoteController();
+            //Light light = new Light();
+            //LightOnCommand lightOn = new LightOnCommand(light);
+            //remote.setCommand(lightOn);
+            //remote.buttonWasPressed();
         }
     }
 }
