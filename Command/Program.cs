@@ -181,10 +181,9 @@ namespace Command
     {
         ICommand[] slot;
 
-        public RemoteController()
+        public RemoteController(int buttonCount)
         {
-            // Our remote is going to have six slots for commands
-            slot = new ICommand[6];
+            slot = new ICommand[buttonCount];
             // Fill the remote with no commands
             for (int i = 0; i < slot.Length; i++)
             {
@@ -230,8 +229,9 @@ namespace Command
             // Create composite commands
             IncreaseTemperatureAndLightOnCommand increaseTemperatureAndLightOn = new IncreaseTemperatureAndLightOnCommand(thermostat, light);
             DecreaseTemperatureAndLightOffCommand decreaseTemperatureAndLightOff = new DecreaseTemperatureAndLightOffCommand(thermostat, light);
+            
             // Create a remote controller and set it's commands
-            RemoteController remote = new RemoteController();
+            RemoteController remote = new RemoteController(8);
             remote.setCommand(0, lightOn);
             remote.setCommand(1, lightOff);
             remote.setCommand(2, increaseTemperature);
