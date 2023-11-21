@@ -15,6 +15,7 @@ namespace Command
         }
     }
 
+    // Light class and its commands
     public class Light
     {
         public void on()
@@ -40,6 +41,21 @@ namespace Command
         public void execute()
         {
             light.on();
+        }
+    }
+
+    public class LightOffCommand : ICommand
+    {
+        Light light;
+
+        public LightOffCommand(Light light)
+        {
+            this.light = light;
+        }
+
+        public void execute()
+        {
+            light.off();
         }
     }
 
@@ -83,13 +99,18 @@ namespace Command
     {
         static void Main(string[] args)
         {
-            RemoteController remote = new RemoteController();
-            //Light light = new Light();
-            //LightOnCommand lightOn = new LightOnCommand(light);
-            //remote.setCommand(lightOn);
-            //remote.buttonWasPressed();
-            Console.WriteLine(remote.ToString());
+            // Create a light and its commands
+            Light light = new Light();
+            LightOnCommand lightOn = new LightOnCommand(light);
+            LightOffCommand lightOff = new LightOffCommand(light);
 
+            // Create a remote controller and set it's commands
+            RemoteController remote = new RemoteController();
+            remote.setCommand(0, lightOn);
+            remote.setCommand(1, lightOff);
+
+            // Print the commands of the remote controller
+            Console.WriteLine(remote.ToString());
 
             // Main command reading loop
             while (true)
