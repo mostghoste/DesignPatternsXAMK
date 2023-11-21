@@ -18,12 +18,30 @@ namespace Command
     // Light class and its commands
     public class Light
     {
+        bool isOn;
+
+        public Light()
+        {
+            isOn = false;
+        }
         public void on()
         {
+            if (isOn)
+            {
+                Console.WriteLine("Light is already on");
+                return;
+            }
+            isOn = true;
             Console.WriteLine("Light is on");
         }
         public void off()
         {
+            if (!isOn)
+            {
+                Console.WriteLine("Light is already off");
+                return;
+            }
+            isOn = false;
             Console.WriteLine("Light is off");
         }
     }
