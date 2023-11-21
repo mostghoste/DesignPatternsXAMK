@@ -52,7 +52,11 @@
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            RemoteController remote = new RemoteController();
+            Light light = new Light();
+            LightOnCommand lightOn = new LightOnCommand(light);
+            remote.setCommand(lightOn);
+            remote.buttonWasPressed();
         }
     }
 }
