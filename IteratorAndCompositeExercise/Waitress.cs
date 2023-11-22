@@ -19,8 +19,8 @@ namespace IteratorAndCompositeExercise
 
         public void printMenu()
         {
-            Iterator dinerIterator = dinerMenu.createIterator();
-            Iterator pancakeIterator = pancakeHouseMenu.createIterator();
+            Iterator dinerIterator = dinerMenu.CreateIterator();
+            Iterator pancakeIterator = pancakeHouseMenu.CreateIterator();
 
             Console.WriteLine("--- Breakfast menu ---");
             printMenu(pancakeIterator);

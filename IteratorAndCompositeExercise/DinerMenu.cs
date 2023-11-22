@@ -7,7 +7,7 @@ using static IteratorAndCompositeExercise.Program;
 
 namespace IteratorAndCompositeExercise
 {
-    internal class DinerMenu
+    internal class DinerMenu : IMenu
     {
         private int Max_Items = 6;
         int numberOfItems = 0;
@@ -34,7 +34,7 @@ namespace IteratorAndCompositeExercise
             }
         }
 
-        public Iterator createIterator()
+        public Iterator CreateIterator()
         {
             return new DinerMenuIterator(MenuItems);
         }

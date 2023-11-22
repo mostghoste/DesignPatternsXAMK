@@ -8,7 +8,7 @@ using static IteratorAndCompositeExercise.Program;
 
 namespace IteratorAndCompositeExercise
 {
-    internal class PancakeHouseMenu
+    internal class PancakeHouseMenu : IMenu
     {
         public ArrayList MenuItems { get; set; }
 
@@ -25,7 +25,7 @@ namespace IteratorAndCompositeExercise
             MenuItems.Add(menuItem);
         }
 
-        public Iterator createIterator()
+        public Iterator CreateIterator()
         {
             return new PancakeHouseIterator(MenuItems);
         }
